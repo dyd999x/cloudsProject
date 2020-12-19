@@ -96,7 +96,6 @@ class TableAllCountries extends React.Component{
     }
 
     render() {
-        // const {data} =this.props
          if(this.state.data !=null || this.state.data[0] != null)
         {
             return(

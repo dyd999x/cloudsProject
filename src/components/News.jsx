@@ -9,8 +9,6 @@ class News extends React.Component {
     }
 
     renderItems = (news)=> {
-        
-        console.log(this.props.news)
         return news.map((n) => {
         return (
             <Item>

@@ -22,7 +22,6 @@ class FormNews extends React.Component {
 
     onSubmit = async event =>{
         event.preventDefault()
-        console.log(this.state)
         addNews(this.state)
         this.setState({title:'',description:'', value:'', country:''})
     }

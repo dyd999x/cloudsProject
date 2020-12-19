@@ -46,7 +46,7 @@ class CountryPage extends React.Component {
           }
           const jsonData = await response.json();
           const data = jsonData.filter((e,i) => i %5 == 0)
-          this.setState({countryData: data, lastSeven: jsonData.slice(-7)}, ()=>console.log(this.state.lastSeven))
+          this.setState({countryData: data, lastSeven: jsonData.slice(-7)})
         } catch(error){
           console.log(error)
           
@@ -59,21 +59,18 @@ class CountryPage extends React.Component {
             if(ex == true){
                 checkIfUpdated(countryName, today).then(res => {
                     if(res==true){
-                        console.log("updated")
                         const countryRef = firestore.doc(`countries/${countryName}`);
                         countryRef.get().then(snapshot => snapshot.data()).then(data =>{
                             this.setState({summary:data})
                         })
         
                     } else {
-                        console.log("not updated")
                         addCountry(country)
                         this.setState({summary: country})
                     }
     
                 })
             } else {
-                console.log("created")
                 addCountry(country)
                 this.setState({summary: country})
             }

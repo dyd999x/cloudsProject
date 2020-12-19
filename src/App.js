@@ -58,10 +58,6 @@ class App extends React.Component {
 
   getSummary = async () => {
 
-    // fetch("https://api.covid19api.com/summary")
-    // .then(response => response.json())
-    // .then(result => this.setState({global: result}))
-    // .catch(error => console.log('error',error))
     try{
       const response = await fetch("https://api.covid19api.com/summary");
       while(response.status != 200){
@@ -79,9 +75,8 @@ class App extends React.Component {
         
        });
       
-      this.setState({global: jsonData.Global, countries: jsonData.Countries, countryNames: names},()=>{
-        console.log(this.state.countries)
-      });
+      this.setState({global: jsonData.Global, countries: jsonData.Countries, countryNames: names}
+      );
     } catch(error){
       console.log(error)
     }
@@ -99,7 +94,7 @@ class App extends React.Component {
       }
       const jsonData = await response.json();
       const final = jsonData.sort((a,b) => a.TotalConfirmed - b.TotalConfirmed)
-      this.setState({world: final},()=>console.log(this.state.world));
+      this.setState({world: final});
     } catch(error){
       console.log(error)
     }
@@ -114,7 +109,7 @@ class App extends React.Component {
       }
       const jsonData = await response.json();
       const final = jsonData.filter((e,i) => i %5 == 0).sort((a,b) => a.TotalConfirmed - b.TotalConfirmed)
-      this.setState({aprilData: final}, () => console.log(this.state.aprilData));
+      this.setState({aprilData: final});
     } catch(error){
       console.log(error)
     }

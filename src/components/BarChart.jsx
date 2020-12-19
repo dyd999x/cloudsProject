@@ -24,7 +24,6 @@ class BarChart extends React.Component{
     }
     render() {
         const {world, One} = this.props
-        console.log(One)
         const dates = this.getDatesArray()
         
         
@@ -83,11 +82,7 @@ class BarChart extends React.Component{
                 newRecovered.push(world[i].NewRecovered)
                 newCases.push(world[i].NewConfirmed)
             }
-            // world.forEach(e =>{
-            //     newDeaths.push(e.NewDeaths)
-            //     newRecovered.push(e.NewRecovered)
-            //     newCases.push(e.NewConfirmed)
-            // })
+
             return(
                 <Container style={{marginTop:'50px'}}>
                     
